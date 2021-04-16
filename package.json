@@ -16,7 +16,7 @@
   },
   "scripts": {
     "compile": "npx hardhat compile",
-    "abigen": "npx abi-types-generator "
+    "abigen": "npx abi-types-generator ",
     "format": "npx prettier --config prettier.config.js --write ."
   },
   "repository": {
