@@ -1,4 +1,5 @@
 import { task } from 'hardhat/config';
+import 'hardhat-typechain';
 
 import { config as dotenvConfig } from 'dotenv';
 import { resolve } from 'path';
@@ -7,12 +8,8 @@ dotenvConfig({ path: resolve(__dirname, './.env') });
 import { HardhatUserConfig } from 'hardhat/types';
 import { NetworkUserConfig } from 'hardhat/types';
 
-import '@nomiclabs/hardhat-waffle';
-import 'hardhat-typechain';
-import 'hardhat-gas-reporter';
-import '@nomiclabs/hardhat-etherscan';
 import path from 'path';
-import fs from 'fs';
+import fs from 'fs-extra';
 
 const chainIds = {
   ganache: 1337,
@@ -76,9 +73,19 @@ const config: HardhatUserConfig = {
     compilers: [
       {
         version: '0.6.12',
+        settings: {
+          metadata: {
+            bytecodeHash: 'none',
+          },
+        },
       },
       {
         version: '0.6.6',
+        settings: {
+          metadata: {
+            bytecodeHash: 'none',
+          },
+        },
       },
     ],
   },
